@@ -61,7 +61,7 @@ Aside
 if(PDF_EXPORT){
   cat("View this CV online with links at [_jrealgatius/CV_](https://github.com/jrealgatius/CV)")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jrealgatius/CV/blob/master/JReal_CV.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jrealgatius/CV/blob/master/Jordi Real’s CV.pdf)")
 }
 
 
@@ -73,7 +73,7 @@ Contact {#contact}
 
 - <i class="fa fa-envelope"></i> jordireal@gmail.com
 - <i class="fa fa-twitter"></i> JordirealReal
-- <i class="fa fa-github"></i>  [jrealgatius](https://github.com/jrealgatius)
+- <i class="fa fa-github"></i>  [github/jrealgatius](https://github.com/jrealgatius)
 - <i class="fa fa-link"></i> [researchgate](https://www.researchgate.net/profile/Jordi_Real)
 - <i class="fa fa-phone"></i> (+34) 600 22 94 43
 
