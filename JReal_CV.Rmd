@@ -24,7 +24,7 @@ library(rorcid)
 orcid_jordi<-"0000-0002-5979-8948"
 
 # Set this to true to have links turned into footnotes at the end of the document
-PDF_EXPORT <- FALSE
+PDF_EXPORT <- F
 
 # Holds all the links that were inserted for placement at the end
 links <- c()
@@ -59,12 +59,10 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _nickstrayer.me/cv_")
+  cat("View this CV online with links at [_jrealgatius/CV_](https://github.com/jrealgatius/CV)")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jrealgatius/CV/JReal_cv.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jrealgatius/CV/blob/master/JReal_CV.pdf)")
 }
-
-
 
 
 ```
@@ -75,7 +73,7 @@ Contact {#contact}
 
 - <i class="fa fa-envelope"></i> jordireal@gmail.com
 - <i class="fa fa-twitter"></i> JordirealReal
-- <i class="fa fa-github"></i> github.com/jrealgatius
+- <i class="fa fa-github"></i>  [jrealgatius](https://github.com/jrealgatius)
 - <i class="fa fa-link"></i> [researchgate](https://www.researchgate.net/profile/Jordi_Real)
 - <i class="fa fa-phone"></i> (+34) 600 22 94 43
 
@@ -90,7 +88,7 @@ skills <- tribble(
   "R",                  5,
   "SPSS",               5,
   "Stata",              3.5,
-  "SAS",                3
+  "SAS",                1.5
 )
 
 build_skill_bars(skills)
@@ -122,20 +120,6 @@ Jordi Real {#title}
 
 intro_orcid<-rorcid::orcid_bio(orcid_jordi)[[1]]$content
 
-
-intro_text<- "I am a senior biostatistician with training in statistics (5-year degree) and doctored in health research. I am currently working at Barcelona Institute for Primary Health Care Research Jordi Gol i Gurina [IDIAPJGol](https://www.idiapjgol.org/index.php/en/) , where I have accumulated long experience (since 2007) as a data analyst, statistics applied to epidemiology research. I collaborate in several research projects (mainly diabetes, cardiovascular diseases, mental disorders and statistical methodology). I perform statistical data analysis under different study designs such as cohorts, case-control, nested-case control or cross-sectional, as well as simulation studies.
-
-Specialized in 'Real World Data' studies, based on clinical records, including pragmatic clinical trials, patient records, administrative data, health surveys or electronic medical records.
-At a methodological level, I have been working in some problems such as, for example, the implementations of [functions to integration longitudinal data](https://github.com/jrealgatius/Stat_codis) according one design optimally to reduce the bias. 
-
-I also provide statistical supervision to other statisticians, technicians, and PhD and MSc students. I have authored and collaborator of more than [60 papers in international journals](https://orcid.org/0000-0002-5979-8948). I have also created R packages and a web-app in R-shiny to visualized longitudinal data."
-
-
-# 
-# intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
-# 
-# Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-# "
 
 cat(sanitize_links(intro_orcid))
 ```
@@ -194,6 +178,12 @@ laboral_makejat<- sumari_empl %>% transmute(
 
 print_section(laboral_makejat, 'laboral')
 
+```
+
+```{r}
+
+adreca_orcid_jordi<-paste0("(https://orcid.org/",orcid_jordi,")")
+text_adreca_orcid<-paste0("I have worked in a variety of papers ranging from data analyist to researcher to data scientist.The rest of the papers can it see [here]",adreca_orcid_jordi) 
 
 ```
 
@@ -203,11 +193,12 @@ Recent publications (2019) {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 ::: aside
-I have worked in a variety of papers ranging from data analyist to researcher to data scientist.The rest of the papers can it see [here](https://orcid.org/0000-0002-5979-8948)
+`r text_adreca_orcid`
 :::
 
-```{r}
 
+
+```{r}
 works_jordi<-rorcid::works(rorcid::as.orcid(orcid_jordi))
 
 # Formatar-ho pel pagedown
