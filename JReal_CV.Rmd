@@ -61,7 +61,7 @@ Aside
 if(PDF_EXPORT){
   cat("View this CV online with links at _nickstrayer.me/cv_")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jrealgatius/CV/JReal_CV.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/jrealgatius/CV/JReal_cv.pdf)")
 }
 
 
@@ -120,6 +120,9 @@ Jordi Real {#title}
 
 ```{r}
 
+intro_orcid<-rorcid::orcid_bio(orcid_jordi)[[1]]$content
+
+
 intro_text<- "I am a senior biostatistician with training in statistics (5-year degree) and doctored in health research. I am currently working at Barcelona Institute for Primary Health Care Research Jordi Gol i Gurina [IDIAPJGol](https://www.idiapjgol.org/index.php/en/) , where I have accumulated long experience (since 2007) as a data analyst, statistics applied to epidemiology research. I collaborate in several research projects (mainly diabetes, cardiovascular diseases, mental disorders and statistical methodology). I perform statistical data analysis under different study designs such as cohorts, case-control, nested-case control or cross-sectional, as well as simulation studies.
 
 Specialized in 'Real World Data' studies, based on clinical records, including pragmatic clinical trials, patient records, administrative data, health surveys or electronic medical records.
@@ -134,7 +137,7 @@ I also provide statistical supervision to other statisticians, technicians, and 
 # Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
 # "
 
-cat(sanitize_links(intro_text))
+cat(sanitize_links(intro_orcid))
 ```
 
 
@@ -145,9 +148,8 @@ Education {data-icon=graduation-cap data-concise=true}
 
 # print_section(position_data, 'education')
 
-
 # Extreure orcid
-sumari_educ<-rorcid::orcid_educations("0000-0002-5979-8948")$`0000-0002-5979-8948`$`affiliation-group`$summaries
+sumari_educ<-rorcid::orcid_educations(orcid_jordi)[[1]]$`affiliation-group`$summaries
 edu<-sumari_educ %>% purrr::map_df(~rbind(.x))
 
 # Formatejar 
@@ -173,12 +175,12 @@ Research Experience {data-icon=laptop}
 
 ```{r}
 
-# Extreure treballs i posar-ho en n Data frame 
+# Extreure treballs i posar-ho en un Data frame 
 res<-rorcid::orcid_employments(orcid_jordi)
-sumari_empl<-res$`0000-0002-5979-8948`$`affiliation-group`$summaries
+sumari_empl<-res[[1]]$`affiliation-group`$summaries
 sumari_empl<-sumari_empl %>% purrr::map_df(~rbind(.x))
 
-# Formatar-ho pel pagedown
+# Formatar-ho per pagedown
 laboral_makejat<- sumari_empl %>% transmute(
   section="laboral",
   in_resume=TRUE,
