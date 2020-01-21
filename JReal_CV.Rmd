@@ -117,9 +117,7 @@ Jordi Real {#title}
 
 
 ```{r}
-
 intro_orcid<-rorcid::orcid_bio(orcid_jordi)[[1]]$content
-
 
 cat(sanitize_links(intro_orcid))
 ```
@@ -129,7 +127,6 @@ Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-
 # print_section(position_data, 'education')
 
 # Extreure orcid
@@ -154,7 +151,7 @@ print_section(edu_makejat, 'education')
 
 
 
-Research Experience {data-icon=laptop}
+Work Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -183,7 +180,8 @@ print_section(laboral_makejat, 'laboral')
 ```{r}
 
 adreca_orcid_jordi<-paste0("(https://orcid.org/",orcid_jordi,")")
-text_adreca_orcid<-paste0("I have worked in a variety of papers ranging from data analyist to researcher to data scientist.The rest of the papers can it see [here]",adreca_orcid_jordi) 
+text_adreca_orcid<-paste0("I have worked in a variety of articles, ranging to data analyst to researcher to data scientist.The rest of the papers are available in this [link]",adreca_orcid_jordi) 
+
 
 ```
 
