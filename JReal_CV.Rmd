@@ -187,7 +187,7 @@ text_adreca_orcid<-paste0("I have worked in a variety of articles, ranging to da
 
 
 
-Recent publications (2019) {data-icon=newspaper} 
+Recent publications (2022) {data-icon=newspaper} 
 --------------------------------------------------------------------------------
 
 ::: aside
